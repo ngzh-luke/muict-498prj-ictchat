@@ -4,11 +4,11 @@ Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer S
 
 ## Members
 
-| Name | ID | GITHUB |
+| NAME | ID | GITHUB |
 |------|----|--------|
 | Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> |
-| Linfeng Zhang | 6488168 | [https://github.com/Lr1zz]|
-| [Name] | [ID] | [GitHub]|
+| Tawan Chaidee | 6488011 | <https://github.com/tawan-chaidee> |
+| Linfeng Zhang | 6488168 | <https://github.com/Lr1zz>|
 
 ## Prerequisites
 
@@ -36,4 +36,4 @@ activate virtual environment (Windows) by run command: `venv\Scripts\activate`
 `streamlit run src/main.py --server.headless true`
 if you want to open the browser automatically please instead run: `streamlit run src/main.py`
 
-7. check out the running application on browser by navigate to: `127.0.0.1:8501`
+7. check out the running application on browser by navigate to the given URL from the terminal.
