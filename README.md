@@ -7,7 +7,7 @@ Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer S
 | Name | ID | GITHUB |
 |------|----|--------|
 | Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> |
-| [Name] | [ID] | [GitHub]|
+| Linfeng Zhang | 6488168 | [https://github.com/Lr1zz]|
 | [Name] | [ID] | [GitHub]|
 
 ## Prerequisites
