@@ -23,11 +23,11 @@ Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer S
 2. create virtual environment by run command:
 `python -m venv venv`
 
-3. check to see that the virtual is at the virtual environment is created by run command: `which pip`
-
-4. activate virtual environment (macOS) by run command:
+3. activate virtual environment (macOS) by run command:
 `source venv/bin/activate`
 activate virtual environment (Windows) by run command: `venv\Scripts\activate`
+
+4. check to see which environment is active by run command: `which pip`
 
 5. install project dependencies by run command:
 `pip install -r requirements.txt`
