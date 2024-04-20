@@ -27,13 +27,15 @@ Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer S
 `source venv/bin/activate`
 activate virtual environment (Windows) by run command: `venv\Scripts\activate`
 
-4. check to see which environment is active by run command: `which pip`
+4. check to see which environment is active by run command: `pip --version`
 
 5. install project dependencies by run command:
 `pip install -r requirements.txt`
 
-6. run command to start the application (browser will not open automatically):
-`streamlit run src/main.py --server.headless true`
-if you want to open the browser automatically please instead run: `streamlit run src/main.py`
+6. start up api server with command: `uvicorn src.apis.main:app`
 
-7. check out the running application on browser by navigate to the given URL from the terminal.
+7. open another terminal and run command to start the application (browser will not open automatically):
+`streamlit run src/ui/main.py --server.headless true`
+if you want to open the browser automatically please instead run: `streamlit run src/ui/main.py`
+
+8. check out the running application on browser by navigate to the given URL from the terminal.
