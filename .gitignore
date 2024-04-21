@@ -164,3 +164,6 @@ offload_dir
 .DS_Store
 myModel1.pkl
 chatModel.pkl
+.dev.env
+.envj
+.vscode

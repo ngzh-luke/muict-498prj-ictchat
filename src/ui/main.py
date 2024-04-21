@@ -3,6 +3,12 @@ import streamlit as st
 import random
 import time
 import requests
+import json
+
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from config import ENDPOINT, API_SERVER
 
 
 def logger(who, msg, verb='says'):
@@ -10,19 +16,17 @@ def logger(who, msg, verb='says'):
 
 
 def sendInput(prompt):  # sent a user input to API server
+    global r
+    r = requests.get(f'{API_SERVER}/{ENDPOINT}?prompt={prompt}')
     logger(f"prompt '{prompt}'", verb='has been sent', msg='to our server')
     pass
 
 
 def responseGen():  # Streamed response emulator
-    # need to request the response here
-    response = random.choice(
-        [
-            "Hello there! How can I assist you today?",
-            "Hi, human! Is there anything I can help you with?",
-            "Do you need help?",
-        ]
-    )
+    # response here
+    r.encoding = 'utf-8'
+    response = json.loads(r.text)
+    response = response['res']
     logger('MUICT Chatbot', response, verb='responds')
     for word in response.split():
         yield word + " "

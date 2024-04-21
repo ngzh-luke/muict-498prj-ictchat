@@ -4,12 +4,10 @@ from transformers import AutoModel, AutoTokenizer, AutoModelForCausalLM, BitsAnd
 from peft import AutoPeftModelForCausalLM
 from torch.cuda import is_available as isCudaAva
 from huggingface_hub import login
-from dotenv import find_dotenv, get_key
+from ..config import myToken
 import joblib
 
 
-dotenv = find_dotenv()
-myToken = get_key(dotenv_path=dotenv, key_to_get='token')
 login(token=myToken)
 
 
@@ -33,7 +31,7 @@ def loadModel():
         # model = AutoModel.from_pretrained(
         #     "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot").to(getDevice())
         model = AutoPeftModelForCausalLM.from_pretrained(
-            "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot", offload_folder="offload_dir").to(getDevice())
+            "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot", offload_folder="offload_dir", adapter_name="adapter_config", device_map="auto").to(getDevice())
         joblib.dump(model, 'chatModel.pkl')
         return model, tokenizer
 
@@ -61,7 +59,7 @@ def generate_response(query, history=[]):
     #       device_map="auto", quantization_config=quantization_config).to(getDevice())
     # tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
     # Load model directly
-    tokenizer, model = loadModel()
+    model, tokenizer = loadModel()
 
     system_prompt = """
 <s>[INST] <<SYS>>

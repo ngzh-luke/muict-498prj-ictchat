@@ -4,6 +4,7 @@ from typing import Union
 from .model import generate_response
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import random
 
 app = FastAPI()
 
@@ -21,12 +22,19 @@ def read_root():
     return {"Hello": "From MUICT CHAT"}
 
 
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Union[str, None] = None):
-#     return {"item_id": item_id, "q": q}
-
-
-@app.get('/input/{prompt}')
-def readUserPrompt(prompt: str):
+@app.get('/chat')
+def readUserPrompt(prompt: Union[str, None] = None):
     res = generate_response(prompt)
     return {'res': res}
+
+
+@app.get('/test')
+def test(prompt: Union[str, None] = None):
+    response = random.choice(
+        [
+            f"Hello there! I think i can assist you with that. prompt: {prompt}",
+            f"Hi, human! This is an easy piece. prompt: {prompt}",
+            f"Sorry, can't help with that. prompt: {prompt}",
+        ]
+    )
+    return {'res': response}
