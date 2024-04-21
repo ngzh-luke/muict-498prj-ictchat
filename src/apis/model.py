@@ -1,5 +1,4 @@
 """ Chat model """
-# Load model directly
 from transformers import AutoModel, AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from peft import AutoPeftModelForCausalLM
 from torch.cuda import is_available as isCudaAva
@@ -30,8 +29,10 @@ def loadModel():
 
         # model = AutoModel.from_pretrained(
         #     "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot").to(getDevice())
+        # model = AutoPeftModelForCausalLM.from_pretrained(
+        #     "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot", offload_folder="offload_dir", adapter_name="adapter_config", device_map="auto",offload_state_dict=True).to(getDevice())
         model = AutoPeftModelForCausalLM.from_pretrained(
-            "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot", offload_folder="offload_dir", adapter_name="adapter_config", device_map="auto").to(getDevice())
+    "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot", adapter_name="adapter_config").to(getDevice())
         joblib.dump(model, 'chatModel.pkl')
         return model, tokenizer
 

@@ -11,25 +11,30 @@ WORKDIR /home/app
 # ENV no_proxy "localhost,127.0.0.1,::1"
 
 # Project files from the local directory to the image
-COPY src/ /home/app
+COPY src/ /home/app/src/
 COPY requirements.txt /home/app/
+COPY adapter_config.json /home/app/
 COPY .env /home/app/
+# remove ui folder
+# RUN bash -c "rm -rf /home/app/ui"
 
 # force run using bash
 SHELL ["/bin/bash", "-c"]
 
 # Update software in Ubuntu
-RUN apt-get update 
-# install necessary lib
+RUN apt-get update && apt-get upgrade -y
+# Install required packages
 RUN apt-get install -y --no-install-recommends \
     build-essential \
     wget \
     git \
+    apt-utils \
     vim \
     bzip2 \
-    ca-certificates \
     libsm6 \
     libxext6
+# independently install package that cause error on previous builds
+RUN apt-get install -y --no-install-recommends ca-certificates
 
 # Setup Miniconda
 ENV PATH /opt/conda/bin:$PATH
@@ -45,4 +50,4 @@ RUN pip --no-cache-dir install --upgrade pip
 RUN pip --no-cache-dir install -r /home/app/requirements.txt
 
 # Start FastAPI
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
+CMD ["uvicorn", "src.apis.main:app", "--host", "0.0.0.0"]

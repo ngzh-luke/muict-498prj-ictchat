@@ -13,6 +13,7 @@ Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer S
 ## Prerequisites
 
 - Python 3
+- Docker
 - A Web Browser
 - Cloned or downloaded the project
 
