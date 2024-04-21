@@ -4,7 +4,11 @@ from peft import AutoPeftModelForCausalLM
 from torch.cuda import is_available as isCudaAva
 from huggingface_hub import login
 from ..config import myToken
+from decouple import config
 import joblib
+
+if myToken == None:
+    myToken = config('token')
 
 login(token=myToken)
 
