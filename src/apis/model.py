@@ -6,11 +6,11 @@ from huggingface_hub import login
 from ..config import myToken
 import joblib
 
-
 login(token=myToken)
 
 
 def getDevice():
+    
     device = isCudaAva()
     return 'cuda' if device == True else 'cpu'
 
@@ -32,7 +32,9 @@ def loadModel():
         # model = AutoPeftModelForCausalLM.from_pretrained(
         #     "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot", offload_folder="offload_dir", adapter_name="adapter_config", device_map="auto",offload_state_dict=True).to(getDevice())
         model = AutoPeftModelForCausalLM.from_pretrained(
-    "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot", adapter_name="adapter_config").to(getDevice())
+    "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot").to(getDevice())
+    #     model = AutoModelForCausalLM.from_pretrained(
+    # "maunoi/Mistral-qlora-finetunined-MUICT-Chatbot")
         joblib.dump(model, 'chatModel.pkl')
         return model, tokenizer
 

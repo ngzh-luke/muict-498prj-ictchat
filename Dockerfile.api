@@ -13,10 +13,9 @@ WORKDIR /home/app
 # Project files from the local directory to the image
 COPY src/ /home/app/src/
 COPY requirements.txt /home/app/
-COPY adapter_config.json /home/app/
 COPY .env /home/app/
 # remove ui folder
-# RUN bash -c "rm -rf /home/app/ui"
+RUN bash -c "rm -rf /home/app/src/ui"
 
 # force run using bash
 SHELL ["/bin/bash", "-c"]
