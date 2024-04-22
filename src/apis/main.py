@@ -5,6 +5,7 @@ from .model import generate_response
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import random
+import ast
 
 app = FastAPI()
 
@@ -23,13 +24,14 @@ def read_root():
 
 
 @app.get('/chat')
-def readUserPrompt(prompt: Union[str, None] = None):
-    res = generate_response(prompt)
+def readUserPrompt(prompt: Union[str, None] = None, hist: Union[str, None] = "[]"):
+    history = ast.literal_eval(hist)
+    res = generate_response(prompt, history)
     return {'res': res}
 
 
 @app.get('/test')
-def test(prompt: Union[str, None] = None):
+def test(prompt: Union[str, None] = None, hist: Union[str, None] = "[]"):
     response = random.choice(
         [
             f"Hello there! I think i can assist you with that. prompt: {prompt}",
@@ -37,4 +39,5 @@ def test(prompt: Union[str, None] = None):
             f"Sorry, can't help with that. prompt: {prompt}",
         ]
     )
-    return {'res': response}
+    print(prompt, type(ast.literal_eval(hist)), ast.literal_eval(hist))
+    return {'res': response, 'hist': ast.literal_eval(hist)}
