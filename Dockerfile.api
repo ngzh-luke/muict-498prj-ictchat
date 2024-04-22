@@ -1,5 +1,5 @@
-# Start from the official Ubuntu base image
-FROM ubuntu:22.04
+# Start from Python base image
+FROM python:3.10.14
 
 # Set the current working directory to /home/app
 WORKDIR /home/app
@@ -20,21 +20,6 @@ RUN bash -c "rm -rf /home/app/src/ui"
 # force run using bash
 SHELL ["/bin/bash", "-c"]
 
-# Update software in Ubuntu
-RUN apt-get update && apt-get upgrade -y
-# Install required packages
-RUN apt-get install -y --no-install-recommends \
-    build-essential \
-    wget \
-    git \
-    apt-utils \
-    vim \
-    bzip2 \
-    libsm6 \
-    libxext6
-# independently install package that cause error on previous builds
-RUN apt-get install -y --no-install-recommends ca-certificates
-
 # Setup Miniconda
 ENV PATH /opt/conda/bin:$PATH
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
@@ -49,4 +34,5 @@ RUN pip --no-cache-dir install --upgrade pip
 RUN pip --no-cache-dir install -r /home/app/requirements.txt
 
 # Start FastAPI
-CMD ["uvicorn", "src.apis.main:app", "--host", "0.0.0.0"]
+EXPOSE 8000
+CMD ["uvicorn", "src.apis.main:app", "--host", "0.0.0.0", "--port", "8000"]

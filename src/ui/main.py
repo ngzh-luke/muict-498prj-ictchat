@@ -27,9 +27,10 @@ def title():
 def sendInput(prompt):  # sent a user input to API server
     """ send user prompt to server """
     global r
-    r = requests.get(f'{API_SERVER}/{ENDPOINT}?prompt={prompt}')
     if len(st.session_state.prompt) >= 1:
         r = requests.get(f'{API_SERVER}/{ENDPOINT}?prompt={prompt}&hist={st.session_state.prompt}')
+    else:
+        r = requests.get(f'{API_SERVER}/{ENDPOINT}?prompt={prompt}')
     logger(f"prompt '{prompt}'", verb='has been sent', msg=f'to our server ({API_SERVER}/{ENDPOINT})')
 
 
@@ -114,7 +115,7 @@ def connectToServer():
     try:
         # with st.spinner(TXT):
             # status, r = checkServerConnection()
-        r  = requests.get(f'{API_SERVER}/')
+        r  = requests.get(f'{API_SERVER}/s')
         time.sleep(0.5)
         print("connect to", API_SERVER, "with status code:",r.status_code)
         if r.status_code == 200:
@@ -130,7 +131,7 @@ def connectToServer():
             # st.error('Unable to connect to chat server.', icon="🚨")
             return False
     except Exception as e:
-        st.toast(f"Unable to connect to chat server, please try again. Error: {e}")
+        # st.toast(f"Unable to connect to chat server, please try again. Error: {e}")
         print(f'error connect to server: {e}')
         return False
 
