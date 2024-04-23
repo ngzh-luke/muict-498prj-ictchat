@@ -115,7 +115,7 @@ def connectToServer():
     try:
         # with st.spinner(TXT):
             # status, r = checkServerConnection()
-        r  = requests.get(f'{API_SERVER}/s')
+        r  = requests.get(f'{API_SERVER}/')
         time.sleep(0.5)
         print("connect to", API_SERVER, "with status code:",r.status_code)
         if r.status_code == 200:
