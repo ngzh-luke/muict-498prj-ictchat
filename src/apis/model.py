@@ -31,7 +31,7 @@ def loadModel():
     return model, tokenizer
 
 
-# MODEL, token = loadModel()
+MODEL, token = loadModel()
 
 
 
