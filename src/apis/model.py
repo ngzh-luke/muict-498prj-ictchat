@@ -7,7 +7,7 @@ from ..config import myToken
 from decouple import config
 
 if myToken == None:
-    myToken = config('token')
+    myToken = config('token') # reassure the huggingface token is exists
 
 login(token=myToken)
 
@@ -31,7 +31,7 @@ def loadModel():
     return model, tokenizer
 
 
-MODEL, token = loadModel()
+# MODEL, token = loadModel()
 
 
 
