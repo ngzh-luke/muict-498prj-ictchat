@@ -1,5 +1,5 @@
 # Start from Python base image
-FROM python:3.10.14
+FROM python:3.11.8
 
 # Set the current working directory to /home/app
 WORKDIR /home/app
@@ -33,6 +33,11 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py310_24.3.0-0-L
 RUN pip --no-cache-dir install --upgrade pip
 RUN pip --no-cache-dir install -r /home/app/requirements.txt
 
-# Start Streamlit
+# expose port to docker container network
 EXPOSE 8501
-CMD ["streamlit", "run", "src/ui/main.py", "--server.port", "--port", "8501"]
+
+# HEALTHCHECK to check that it is still working
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+
+# Start Streamlit
+CMD ["streamlit", "run", "src/ui/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
