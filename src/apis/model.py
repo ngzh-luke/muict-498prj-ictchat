@@ -7,7 +7,7 @@ from ..config import myToken
 from decouple import config
 
 if myToken == None:
-    myToken = config('token') # reassure the huggingface token is exists
+    myToken = config('TOKEN') # reassure the huggingface token is exists
 
 login(token=myToken)
 
@@ -31,7 +31,7 @@ def loadModel():
     return model, tokenizer
 
 
-# MODEL, token = loadModel()
+MODEL, token = loadModel()
 
 
 
@@ -48,7 +48,7 @@ def generate_response(query, history=[]):
     prompt = f"{context}[Mahidol ICT] {query}"
 
     model_inputs = token(prompt, return_tensors="pt").to(MODEL.device)
-    outputs = MODEL.generate(**model_inputs, temperature=0.1, top_k=1, top_p=1.0, repetition_penalty=1.4, min_new_tokens=16, max_new_tokens=400, do_sample=True)
+    outputs = MODEL.generate(**model_inputs, temperature=0.05, top_k=2, top_p=30.0, repetition_penalty=1.1, min_new_tokens=16, max_new_tokens=800, do_sample=True)
 
     decoded_text = token.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0]
 
