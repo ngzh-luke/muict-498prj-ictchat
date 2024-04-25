@@ -91,40 +91,35 @@ def main():
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
 
-        if st.session_state.disabled :
-            st.caption("true")
 
-
-        while st.session_state.disabled == False:
-
-            # Accept user input
-            if prompt := st.chat_input(st.session_state.placeholder, disabled=st.session_state.disabled):
+        # Accept user input
+        if prompt := st.chat_input(st.session_state.placeholder, disabled=st.session_state.disabled):
             
-                st.session_state.disabled = True
-                st.session_state.placeholder = 'Our interlligent assistant is thinking...'
-                # Add user message to chat history
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                # st.session_state.hist.append(prompt)
-                # Display user message in chat message container
-                with st.chat_message("user"):
-                    # st.session_state.disabled = False
-                    # st.session_state.placeholder = 'Chat with MUICT Chatbot'
-                    with st.spinner("Asking our intelligent assistant..."):
-                        logger('user', prompt)
-                        sendInput(prompt)
-                        st.markdown(prompt)
+            st.session_state.disabled = True
+            st.session_state.placeholder = 'Our interlligent assistant is thinking...'
+            # Add user message to chat history
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            # st.session_state.hist.append(prompt)
+            # Display user message in chat message container
+            with st.chat_message("user"):
+                # st.session_state.disabled = False
+                # st.session_state.placeholder = 'Chat with MUICT Chatbot'
+                with st.spinner("Asking our intelligent assistant..."):
+                    logger('user', prompt)
+                    sendInput(prompt)
+                    st.markdown(prompt)
 
-                # Display assistant response in chat message container
-                with st.chat_message("assistant"):
-                    with st.spinner("Thinking..."):
-                        response = st.write_stream(responseGen())
-                        # time.sleep(0.1)
+            # Display assistant response in chat message container
+            with st.chat_message("assistant"):
+                with st.spinner("Thinking..."):
+                    response = st.write_stream(responseGen())
+                    # time.sleep(0.1)
 
-                # Add assistant response to chat history
-                st.session_state.messages.append(
+            # Add assistant response to chat history
+            st.session_state.messages.append(
                 {"role": "assistant", "content": response})
-                # st.session_state.hist.append(response)
-                # print("hist", st.session_state.hist)
+            # st.session_state.hist.append(response)
+            # print("hist", st.session_state.hist)
             
 
 def connectToServerOp():
