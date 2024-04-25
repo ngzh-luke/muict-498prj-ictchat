@@ -26,7 +26,10 @@ def title():
     TITLE = 'MUICT Chatbot'
     st.set_page_config(page_title=TITLE)
     st.title(TITLE)
-    st.caption("By Group 4")
+    st.caption('ML project for ITCS498 at MUICT semester 2/2023 by group 4:\n- 6488011 Tawan Chaidee\
+\n- 6488004 Kittipich Aiumbhornsin\
+\n- 6488168 Linfeng Zhang\
+')
     # logger(who='app title', verb='has been', msg='shown')
 
 
