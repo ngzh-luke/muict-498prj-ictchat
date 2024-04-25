@@ -54,10 +54,9 @@ def welcome():
     # display welcome msg
     welcome = st.chat_message('assistant')
     welcomeTxt = 'Hello, what would you like to know about MUICT?'
-    welcome.write(welcomeTxt)
+    welcome.markdown(welcomeTxt)
     welcome.caption('Please feel free to talk to me via chat box below.')
     return welcomeTxt
-
 
 
 
@@ -68,7 +67,6 @@ def main():
         connectToServerOp()
     else:
 
-
         # Initialize chat history
         if "messages" not in st.session_state:
             st.session_state.messages = []
@@ -78,35 +76,52 @@ def main():
         #     st.session_state.hist = []
         #     st.session_state.hist.append(welcome())
 
+        # initialize chatbox state
+        if 'disabled' not in st.session_state:
+            st.session_state.disabled = False
+        
+
+        # initialize chatbox placeholder
+        if 'placeholder' not in st.session_state:
+            st.session_state.placeholder = 'Chat with MUICT Chatbot'
+        
+
         # Display chat messages from history on app rerun
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
 
+        if st.session_state.disabled :
+            st.caption("true")
+
         # Accept user input
-        # `Chat with MUICT Chatbot` is a placeholder
-        if prompt := st.chat_input("Chat with MUICT Chatbot"):
- 
+        if prompt := st.chat_input(st.session_state.placeholder, disabled=st.session_state.disabled):
+            st.session_state.disabled = True
+            st.session_state.placeholder = 'Our interlligent assistant is thinking...'
             # Add user message to chat history
             st.session_state.messages.append({"role": "user", "content": prompt})
             # st.session_state.hist.append(prompt)
             # Display user message in chat message container
             with st.chat_message("user"):
-                logger('user', prompt)
-                sendInput(prompt)
-                st.markdown(prompt)
+                # st.session_state.disabled = False
+                # st.session_state.placeholder = 'Chat with MUICT Chatbot'
+                with st.spinner("Asking our intelligent assistant..."):
+                    logger('user', prompt)
+                    sendInput(prompt)
+                    st.markdown(prompt)
 
             # Display assistant response in chat message container
             with st.chat_message("assistant"):
                 with st.spinner("Thinking..."):
                     response = st.write_stream(responseGen())
-                    time.sleep(0.2)
+                    # time.sleep(0.1)
 
             # Add assistant response to chat history
             st.session_state.messages.append(
                 {"role": "assistant", "content": response})
             # st.session_state.hist.append(response)
             # print("hist", st.session_state.hist)
+            
 
 def connectToServerOp():
     connectToServer.clear() # clear server status cache
@@ -118,12 +133,15 @@ def connectToServerOp():
             connectSuccess =  _retry()
     elif connectSuccess == True:
         st.session_state.connection = True
+        welcome()
         main()
 
 
 title()
+connectToServer.clear()
 if st.session_state.connection == False:
     connectToServerOp()
 elif st.session_state.connection == True:
+    # welcome()
     main()
     

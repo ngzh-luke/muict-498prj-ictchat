@@ -19,7 +19,7 @@ def connectToServer():
         # with st.spinner(TXT):
             # status, r = checkServerConnection()
         r  = requests.get(f'{API_SERVER}/test')
-        time.sleep(0.5)
+        # time.sleep(0.5)
         print("connect to", API_SERVER, "with status code:",r.status_code)
         if r.status_code == 200:
             print(f'Server: {API_SERVER} is ready!')
@@ -52,7 +52,7 @@ def checkServerConnection():
 def _retry():
     """ Returns `True` if connected to server or `False` otherwise"""
     with st.spinner('Connecting to chat server...'):
-        time.sleep(2)
+        # time.sleep(1)
         connectToServer.clear() # clear server status cache
         connect = connectToServer()
         print("retry conn result",connect)
