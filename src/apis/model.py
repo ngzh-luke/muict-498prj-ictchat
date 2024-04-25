@@ -38,8 +38,8 @@ def loadModelMistral():
     return model, tokenizer
 
 
-# L_MODEL, L_TOKEN = loadModelLlama()
-# M_MODEL, M_TOKEN = loadModelMistral()
+L_MODEL, L_TOKEN = loadModelLlama()
+M_MODEL, M_TOKEN = loadModelMistral()
 
 
 def generate_response_llama2(query, history=[]):

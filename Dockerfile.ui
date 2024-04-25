@@ -12,7 +12,7 @@ WORKDIR /home/app
 
 # Project files from the local directory to the image
 COPY src/ /home/app/src/
-COPY requirements.txt /home/app/
+COPY requirements.ui.txt /home/app/
 COPY .env /home/app/
 # remove apis folder
 RUN bash -c "rm -rf /home/app/src/apis"
@@ -31,7 +31,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py311_24.3.0-0-L
 
 # Install Python packages
 RUN pip --no-cache-dir install --upgrade pip
-RUN pip --no-cache-dir install -r /home/app/requirements.txt
+RUN pip --no-cache-dir install -r /home/app/requirements.ui.txt
 
 # expose port to docker container network
 EXPOSE 8501
