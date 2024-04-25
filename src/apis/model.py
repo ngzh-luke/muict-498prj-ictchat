@@ -43,6 +43,7 @@ M_MODEL, M_TOKEN = loadModelMistral()
 
 
 def generate_response_llama2(query, history=[]):
+    """ generates response using Llama2 fine tuned model """
     system_prompt = """
     <<SYS>>
     Welcome to your Mahidol University Information and Communication Technology (MUICT) program assistant!
@@ -87,6 +88,7 @@ def generate_response_llama2(query, history=[]):
 
 
 def generate_response_mistral(query, history=[]):
+    """ generates response using Mistral fine tuned model """
     system_prompt = """
     <<SYS>>
     Welcome to your Mahidol University Information and Communication Technology (MUICT) program assistant!

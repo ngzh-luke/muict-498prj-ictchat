@@ -13,6 +13,9 @@ from config import ENDPOINT, API_SERVER
 if "connection" not in st.session_state:
     st.session_state.connection = False
 
+M = "Mistral fine-tuned"
+L = "Llama2 fine-tuned"
+
 def logger(who, msg, verb='says'):
     """ log things out on the console """
     print(f"{who} {verb} '{msg}'")
@@ -33,7 +36,10 @@ def sendInput(prompt):  # sent a user input to API server
     # if len(st.session_state.hist) >= 1:
     #     r = requests.get(f'{API_SERVER}/{ENDPOINT}?prompt={prompt}&hist={st.session_state.hist}')
     # else:
-    r = requests.get(f'{API_SERVER}/{ENDPOINT}?prompt={prompt}')
+    if selectedModel == L:
+        r = requests.get(f'{API_SERVER}/{ENDPOINT}?model=L&prompt={prompt}')
+    else:
+        r = requests.get(f'{API_SERVER}/{ENDPOINT}?model=M&prompt={prompt}')
     logger(f"prompt '{prompt}'", verb='has been sent', msg=f'to our server ({API_SERVER}/{ENDPOINT})')
 
 
@@ -66,6 +72,14 @@ def main():
         st.session_state.connection = False
         connectToServerOp()
     else:
+        global selectedModel
+        with st.sidebar:
+            st.header("Model Selection")
+            modelOptions = (M, L)
+            selectedModel = st.selectbox(
+            label="Choose your preferred Model:",
+            options=modelOptions,
+        )
 
         # Initialize chat history
         if "messages" not in st.session_state:
@@ -76,14 +90,13 @@ def main():
         #     st.session_state.hist = []
         #     st.session_state.hist.append(welcome())
 
-        # initialize chatbox state
-        if 'disabled' not in st.session_state:
-            st.session_state.disabled = False
+        # # initialize chatbox state
+        # if 'disabled' not in st.session_state:
+        #     st.session_state.disabled = False
         
-
-        # initialize chatbox placeholder
-        if 'placeholder' not in st.session_state:
-            st.session_state.placeholder = 'Chat with MUICT Chatbot'
+        # # initialize chatbox placeholder
+        # if 'placeholder' not in st.session_state:
+        #     st.session_state.placeholder = 'Chat with MUICT Chatbot'
         
 
         # Display chat messages from history on app rerun
@@ -93,10 +106,10 @@ def main():
 
 
         # Accept user input
-        if prompt := st.chat_input(st.session_state.placeholder, disabled=st.session_state.disabled):
+        if prompt := st.chat_input("Chat with MUICT Chatbot"):
             
-            st.session_state.disabled = True
-            st.session_state.placeholder = 'Our interlligent assistant is thinking...'
+            # st.session_state.disabled = True
+            # st.session_state.placeholder = 'Our interlligent assistant is thinking...'
             # Add user message to chat history
             st.session_state.messages.append({"role": "user", "content": prompt})
             # st.session_state.hist.append(prompt)
