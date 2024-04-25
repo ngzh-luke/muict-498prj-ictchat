@@ -40,8 +40,10 @@ def sendInput(prompt):  # sent a user input to API server
     #     r = requests.get(f'{API_SERVER}/{ENDPOINT}?prompt={prompt}&hist={st.session_state.hist}')
     # else:
     if selectedModel == L:
+        print(f'using {L}')
         r = requests.get(f'{API_SERVER}/{ENDPOINT}?model=L&prompt={prompt}')
     else:
+        print(f'using {M}')
         r = requests.get(f'{API_SERVER}/{ENDPOINT}?model=M&prompt={prompt}')
     logger(f"prompt '{prompt}'", verb='has been sent', msg=f'to our server ({API_SERVER}/{ENDPOINT})')
 
