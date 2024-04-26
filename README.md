@@ -17,6 +17,7 @@ Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer S
 - [Deployment (Frontend)](#deployment-frontend)
   - [Prerequisites for follow this instructions](#prerequisites-for-follow-this-instructions)
   - [Deployment (Frontend) instructions](#deployment-frontend-instructions)
+- [Screenshot of Chatbot frontend](#screenshot-of-chatbot)
 
 ## Members of group 4
 
@@ -207,3 +208,11 @@ We will deploy our frontend to a cloud linux instance by using a Docker containe
     8.4 altogether would generates us a beautiful command: `docker run --name chatui -it -p 80:8501 [image ID]`
 
 9. open web browser and visit your VM instance public IP address or domain that points to that IP, you will see the lovely frontend!
+
+## Screenshot of Chatbot
+
+This screenshot was taken before we made huge major changes to our models and frontend design, but might be enough to give you an idea of how is our Chatbot:
+
+- PNG image:
+  ![Chatbot frontend](chat20240425T1532.png)
+- [PDF file](chat20240425T1532.pdf)
