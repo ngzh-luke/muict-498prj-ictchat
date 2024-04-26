@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2024 Team members of the group 4 [list of members](README.md#members-of-group-4)
+Copyright (c) 2024 Team members of group 4 (more about team members on README.md)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
