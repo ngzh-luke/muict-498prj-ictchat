@@ -1,3 +1,5 @@
+# Dockerfile to build frontend server 
+
 # Start from Python base image
 FROM python:3.11.8
 

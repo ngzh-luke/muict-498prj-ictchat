@@ -1,3 +1,6 @@
+# Dockerfile to build backend server but it is useless due to our backend requires to use GPU, 
+# however might be useful if there is work around to run the container to use host's GPU
+
 # Start from Python base image
 FROM python:3.10
 
