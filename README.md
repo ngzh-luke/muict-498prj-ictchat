@@ -78,15 +78,15 @@ if you want to open the browser automatically please instead run: `streamlit run
 
 1. change working directory on terminal using `cd` command to where the project is saved.
 
-2. build Docker image by using command: `docker build -f Dockerfile.ui -t chatui .`
+2. build Docker image by using command: `docker build -f Dockerfile.ui -t chatui:v1 .`
 
-3. after build is success, run the frontend server by using command: `docker run --name chatui -it -p 8501:8501`
+3. after build is success, run the frontend server by using command: `docker run --name chatui -it -p 8501:8501 chatui:1`
 
 4. navigate to browser and visit chat UI via `127.0.0.1:8501` or `0.0.0.0:8501`
 
 ## Deployment (Backend)
 
-In this instructions, we will deploy our backend to a cloud linux instance by using NGINX as a web server.
+In this instructions, we will deploy our backend to a cloud linux instance by using [NGINX](https://www.nginx.com/) as a web server.
 
 ### Things to know before proceed
 
@@ -157,7 +157,7 @@ In this instructions, we will deploy our backend to a cloud linux instance by us
         }   
 19. run `sudo ln -s /etc/nginx/sites-available/ictchat /etc/nginx/sites-enabled/` to enable the configuration of our app by creating a symbolic link from the file in `sites-available` into `sites-enabled`
 
-20. test our NGINX is okay by run command: `sudo nginx -t`
+20. test our `NGINX` is okay by run command: `sudo nginx -t`
 
 21. restart `NGINX` for the new `NGINX` configurations to apply by run command: `sudo systemctl restart nginx`
 
@@ -204,6 +204,6 @@ We will deploy our frontend to a cloud linux instance by using a Docker containe
 
     8.3 to instantly attach to the container after run, you may add `-it` to the command
 
-    8.1 altogether would generates us a beautiful command: `docker run --name chatui -it -p 80:8501 [image ID]`
+    8.4 altogether would generates us a beautiful command: `docker run --name chatui -it -p 80:8501 [image ID]`
 
 9. open web browser and visit your VM instance public IP address or domain that points to that IP, you will see the lovely frontend!

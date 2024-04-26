@@ -1,6 +1,6 @@
 # Useful Resources and credits
 
-resources we refer to and might be useful to you
+resources we refer to (but not all) and might be useful to you
 
 - [Streamlit docs](https://docs.streamlit.io/develop/tutorials/llms/llm-quickstart)
 - [Streamlit docs](https://docs.streamlit.io/)
