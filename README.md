@@ -50,7 +50,15 @@ This project applied [MIT](https://en.wikipedia.org/wiki/MIT_License) license, a
   - [Instructions (Docker)](#instructions-docker)
 
 ## Instructions (Model Inference)
-1. To try out our chatbot model, please go to /src/model/Muict_Chatbot_inference.ipynb and run it using a Google Colab account. Alternatively, you can use this link. "https://colab.research.google.com/drive/1YBzJvVwAk2Vc8Bc0c7xnMzURW3t3946p?usp=sharing)"
+To try out our chatbot model, please go to /src/model/Muict_Chatbot_inference.ipynb and run it using a Google Colab account. Alternatively, you can use this link. "https://colab.research.google.com/drive/1YBzJvVwAk2Vc8Bc0c7xnMzURW3t3946p?usp=sharing)"
+
+## Model Evaluation
+1. We have evaluated the performance of our two models using human evaluation from our group members. We have used two metrics:
+- Accuracy: Is the response factual or not
+- Relevent: does the respones match what user ask for?
+2. To see the result of evaluation please uses this link
+- Llama2-Finetune: https://docs.google.com/spreadsheets/d/1mYbO1b3D1JQe_gcB0o4YWB937OXScfkaEYz6-hulaGE/edit?usp=sharing
+- Mistral-Finetune: https://docs.google.com/spreadsheets/d/1lqzw_hh_-L_QKWGjA136RRUsKfbxYo3lUymNiG0coJ4/edit#gid=759401991
 
 ## Instructions (Python interpreter)
 
@@ -219,3 +227,5 @@ This screenshot was taken before we made huge major changes to our models and fr
 - [PDF file](chat20240425T1532.pdf)
 - PNG image:
   ![Chatbot frontend](chat20240425T1532.png)
+
+
