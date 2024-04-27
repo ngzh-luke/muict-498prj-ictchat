@@ -21,11 +21,11 @@ Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer S
 
 ## Members of group 4
 
-| NAME | ID | GITHUB | CONTACT |
-|------|----|--------|---------|
-| Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> | <kittipich.aiu@student.mahidol.ac.th> or <contact@lukecreated.com> |
-| Tawan Chaidee | 6488011 | <https://github.com/tawan-chaidee> | |
-| Linfeng Zhang | 6488168 | <https://github.com/Lr1zz>| |
+| NAME | ID | GITHUB | CONTACT | Reponsibility | 
+|------|----|--------|---------|---------------|
+| Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> | <kittipich.aiu@student.mahidol.ac.th> or <contact@lukecreated.com> | Backend/Frontend and deployment
+| Tawan Chaidee | 6488011 | <https://github.com/tawan-chaidee> | <tawan.jhaidee@gmail.com>| Model trainning,Inference,evaluation and data pre-processsing
+| Linfeng Zhang | 6488168 | <https://github.com/Lr1zz>| | Data collecting 
 
 ## License
 
@@ -48,6 +48,9 @@ This project applied [MIT](https://en.wikipedia.org/wiki/MIT_License) license, a
 - For the frontend, you may choose to run using Docker or directly using Python interpreter.
   - [Instructions (Python interpreter)](#instructions-python-interpreter)
   - [Instructions (Docker)](#instructions-docker)
+
+## Instructions (Model Inference)
+1. To try out our chatbot model, please go to /src/model/Muict_Chatbot_inference.ipynb and run it using a Google Colab account. Alternatively, you can use this link. "https://colab.research.google.com/drive/1YBzJvVwAk2Vc8Bc0c7xnMzURW3t3946p?usp=sharing)"
 
 ## Instructions (Python interpreter)
 
