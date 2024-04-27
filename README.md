@@ -2,10 +2,11 @@
 
 Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer Science semester 2 of 2023 at faculty of ICT, Mahidol University. The models are trained to know about MUICT, mostly on information on 2 year courses, therefore, with a limited range of data trained, it might not enough to generates such a relevent responses, or even generates bias responses and incorrect information.
 
-Our model is available here:
+Our models are available here:
+
 - [maunoi/llama2-qlora-finetunined-MUICT-Chatbot](https://huggingface.co/maunoi/Mistral-qlora-finetunined-MUICT-Chatbot)
 - [maunoi/Mistral-qlora-finetunined-MUICT-Chatbot](https://huggingface.co/maunoi/Mistral-qlora-finetunined-MUICT-Chatbot)
-  
+
 ## On this file
 
 - [MUICT CHATBOT](#muict-chatbot)
@@ -13,6 +14,8 @@ Our model is available here:
 - [License](#license)
 - [Prerequisites](#prerequisites)
 - [First things first](#first-things-first)
+- [Instructions (Model Inference)](#instructions-model-inference)
+- [Model Evaluation](#model-evaluation)
 - [Instructions (Python interpreter)](#instructions-python-interpreter)
 - [Instructions (Docker)](#instructions-docker)
 - [Deployment (Backend)](#deployment-backend)
@@ -25,11 +28,11 @@ Our model is available here:
 
 ## Members of group 4
 
-| NAME | ID | GITHUB | CONTACT | Reponsibility | 
-|------|----|--------|---------|---------------|
-| Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> | <kittipich.aiu@student.mahidol.ac.th> or <contact@lukecreated.com> | Backend/Frontend, deployment and documentation
-| Tawan Chaidee | 6488011 | <https://github.com/tawan-chaidee> | <tawan.jhaidee@gmail.com>| Model trainning,Inference,evaluation and data pre-processsing
-| Linfeng Zhang | 6488168 | <https://github.com/Lr1zz>| | Data collecting 
+| NAME | ID | GITHUB | CONTACT | RESPONSIBILITY |
+|------|----|--------|---------|----------------|
+| Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> | <kittipich.aiu@student.mahidol.ac.th> or <contact@lukecreated.com> | Backend/Frontend, deployment and documentation |
+| Tawan Chaidee | 6488011 | <https://github.com/tawan-chaidee> | <tawan.jhaidee@gmail.com>| Model training, Inference,evaluation and data pre-processsing |
+| Linfeng Zhang | 6488168 | <https://github.com/Lr1zz>| | Data collecting |
 
 ## License
 
@@ -54,15 +57,20 @@ This project applied [MIT](https://en.wikipedia.org/wiki/MIT_License) license, a
   - [Instructions (Docker)](#instructions-docker)
 
 ## Instructions (Model Inference)
-To try out our chatbot model, please go to /src/model/Muict_Chatbot_inference.ipynb and run it using a Google Colab account. Alternatively, you can use this link. "https://colab.research.google.com/drive/1YBzJvVwAk2Vc8Bc0c7xnMzURW3t3946p?usp=sharing)"
+
+To try out our chatbot model, please go to `/src/model/Muict_Chatbot_inference.ipynb` and run it on Google Colab. Alternatively, you can use this link: "<https://colab.research.google.com/drive/1YBzJvVwAk2Vc8Bc0c7xnMzURW3t3946p?usp=sharing>"
 
 ## Model Evaluation
+
 1. We have evaluated the performance of our two models using human evaluation from our group members. We have used two metrics:
-- Accuracy: Is the response factual or not
-- Relevent: does the respones match what user ask for?
-2. To see the result of evaluation please uses this link
-- Llama2-Finetune: https://docs.google.com/spreadsheets/d/1mYbO1b3D1JQe_gcB0o4YWB937OXScfkaEYz6-hulaGE/edit?usp=sharing
-- Mistral-Finetune: https://docs.google.com/spreadsheets/d/1lqzw_hh_-L_QKWGjA136RRUsKfbxYo3lUymNiG0coJ4/edit#gid=759401991
+
+    - Accuracy: Is the response factual or not
+    - Relevent: does the respones match what user ask for?
+
+2. To see the results of evaluation please uses this link
+
+    - Llama2-Fine-tuned: [Llama2_evaluation.xlsx](Llama2_evaluation.xlsx)
+    - Mistral-Fine-tuned: [Mistral_evaluation.xlsx](Mistral_evaluation.xlsx)
 
 ## Instructions (Python interpreter)
 
@@ -231,5 +239,3 @@ This screenshot was taken before we made huge major changes to our models and fr
 - [PDF file](chat20240425T1532.pdf)
 - PNG image:
   ![Chatbot frontend](chat20240425T1532.png)
-
-
