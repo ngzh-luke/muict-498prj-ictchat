@@ -90,7 +90,7 @@ activate virtual environment (Windows) by run command: `venv\Scripts\activate`
 5. install project dependencies by run command:
 `pip install -r requirements.txt`
 
-6. create the `.env` or `.dev.env` file and specify all of the key-value pairs, please refer to file `.example.env` for key-value pairs details.
+6. create the `.env` file and specify all of the key-value pairs, please refer to file `.example.env` for key-value pairs details.
 
 7. start up api server with command: `uvicorn src.apis.main:app`
 
@@ -101,6 +101,8 @@ if you want to open the browser automatically please instead run: `streamlit run
 9. check out the running application on browser by navigate to the given URL from the terminal.
 
 ## Instructions (Docker)
+
+0. make sure you have specified all key-value pairs in `.env` file and backend server is running.
 
 1. change working directory on terminal using `cd` command to where the project is saved.
 
