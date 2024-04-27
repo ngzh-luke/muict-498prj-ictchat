@@ -2,16 +2,12 @@
 
 Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer Science semester 2 of 2023 at faculty of ICT, Mahidol University. The models are trained to know about MUICT, mostly on information on 2 year courses, therefore, with a limited range of data trained, it might not enough to generates such a relevent responses, or even generates bias responses and incorrect information.
 
-Our models are available here:
-
-- [maunoi/llama2-qlora-finetunined-MUICT-Chatbot](https://huggingface.co/maunoi/Mistral-qlora-finetunined-MUICT-Chatbot)
-- [maunoi/Mistral-qlora-finetunined-MUICT-Chatbot](https://huggingface.co/maunoi/Mistral-qlora-finetunined-MUICT-Chatbot)
-
 ## On this file
 
 - [MUICT CHATBOT](#muict-chatbot)
 - [Members of group 4](#members-of-group-4)
 - [License](#license)
+- [Our models](#our-models)
 - [Prerequisites](#prerequisites)
 - [First things first](#first-things-first)
 - [Instructions (Model Inference)](#instructions-model-inference)
@@ -37,6 +33,13 @@ Our models are available here:
 ## License
 
 This project applied [MIT](https://en.wikipedia.org/wiki/MIT_License) license, about license please refer to [`LICENSE.MD`](LICENSE.md) file.
+
+## Our models
+
+We use Llama2 and Mistral as base models and fine-tuned them to know specific information about MUICT, mostly on information on 2 year courses. Below are HuggingFace links to our models:
+
+- [maunoi/llama2-qlora-finetunined-MUICT-Chatbot](https://huggingface.co/maunoi/Mistral-qlora-finetunined-MUICT-Chatbot)
+- [maunoi/Mistral-qlora-finetunined-MUICT-Chatbot](https://huggingface.co/maunoi/Mistral-qlora-finetunined-MUICT-Chatbot)
 
 ## Prerequisites
 
@@ -90,7 +93,7 @@ activate virtual environment (Windows) by run command: `venv\Scripts\activate`
 5. install project dependencies by run command:
 `pip install -r requirements.txt`
 
-6. create the `.env` file and specify all of the key-value pairs, please refer to file `.example.env` for key-value pairs details.
+6. create the `.env` or `.dev.env` file and specify all of the key-value pairs, please refer to file `.example.env` for key-value pairs details.
 
 7. start up api server with command: `uvicorn src.apis.main:app`
 
