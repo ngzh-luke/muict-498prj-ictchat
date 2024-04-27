@@ -27,7 +27,7 @@ Our model is available here:
 
 | NAME | ID | GITHUB | CONTACT | Reponsibility | 
 |------|----|--------|---------|---------------|
-| Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> | <kittipich.aiu@student.mahidol.ac.th> or <contact@lukecreated.com> | Backend/Frontend and deployment
+| Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> | <kittipich.aiu@student.mahidol.ac.th> or <contact@lukecreated.com> | Backend/Frontend, deployment and documentation
 | Tawan Chaidee | 6488011 | <https://github.com/tawan-chaidee> | <tawan.jhaidee@gmail.com>| Model trainning,Inference,evaluation and data pre-processsing
 | Linfeng Zhang | 6488168 | <https://github.com/Lr1zz>| | Data collecting 
 
