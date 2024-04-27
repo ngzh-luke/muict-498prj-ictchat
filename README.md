@@ -81,7 +81,7 @@ if you want to open the browser automatically please instead run: `streamlit run
 
 2. build Docker image by using command: `docker build -f Dockerfile.ui -t chatui:v1 .`
 
-3. after build is success, run the frontend server by using command: `docker run --name chatui -it -p 8501:8501 chatui:1`
+3. after build is success, run the frontend server by using command: `docker run --name chatui -it -p 8501:8501 chatui:v1`
 
 4. navigate to browser and visit chat UI via `127.0.0.1:8501` or `0.0.0.0:8501`
 
@@ -213,6 +213,6 @@ We will deploy our frontend to a cloud linux instance by using a Docker containe
 
 This screenshot was taken before we made huge major changes to our models and frontend design, but might be enough to give you an idea of how is our Chatbot:
 
+- [PDF file](chat20240425T1532.pdf)
 - PNG image:
   ![Chatbot frontend](chat20240425T1532.png)
-- [PDF file](chat20240425T1532.pdf)

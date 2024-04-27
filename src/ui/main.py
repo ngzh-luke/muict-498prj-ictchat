@@ -30,15 +30,12 @@ def title():
 \n- 6488004 Kittipich Aiumbhornsin\
 \n- 6488168 Linfeng Zhang\
 ')
-    # logger(who='app title', verb='has been', msg='shown')
 
 
 def sendInput(prompt):  # sent a user input to API server
     """ send user prompt to server """
     global r
-    # if len(st.session_state.hist) >= 1:
-    #     r = requests.get(f'{API_SERVER}/{ENDPOINT}?prompt={prompt}&hist={st.session_state.hist}')
-    # else:
+
     if selectedModel == L:
         print(f'using {L}')
         r = requests.get(f'{API_SERVER}/{ENDPOINT}?model=L&prompt={prompt}')
@@ -89,19 +86,6 @@ def main():
         # Initialize chat history
         if "messages" not in st.session_state:
             st.session_state.messages = []
-
-        # # custom conver hist
-        # if 'hist' not in st.session_state:
-        #     st.session_state.hist = []
-        #     st.session_state.hist.append(welcome())
-
-        # # initialize chatbox state
-        # if 'disabled' not in st.session_state:
-        #     st.session_state.disabled = False
-        
-        # # initialize chatbox placeholder
-        # if 'placeholder' not in st.session_state:
-        #     st.session_state.placeholder = 'Chat with MUICT Chatbot'
         
 
         # Display chat messages from history on app rerun
@@ -113,15 +97,11 @@ def main():
         # Accept user input
         if prompt := st.chat_input("Chat with MUICT Chatbot"):
             
-            # st.session_state.disabled = True
-            # st.session_state.placeholder = 'Our interlligent assistant is thinking...'
             # Add user message to chat history
             st.session_state.messages.append({"role": "user", "content": prompt})
-            # st.session_state.hist.append(prompt)
             # Display user message in chat message container
             with st.chat_message("user"):
-                # st.session_state.disabled = False
-                # st.session_state.placeholder = 'Chat with MUICT Chatbot'
+ 
                 with st.spinner("Asking our intelligent assistant..."):
                     logger('user', prompt)
                     sendInput(prompt)
@@ -131,13 +111,11 @@ def main():
             with st.chat_message("assistant"):
                 with st.spinner("Thinking..."):
                     response = st.write_stream(responseGen())
-                    # time.sleep(0.1)
 
             # Add assistant response to chat history
             st.session_state.messages.append(
                 {"role": "assistant", "content": response})
-            # st.session_state.hist.append(response)
-            # print("hist", st.session_state.hist)
+
             
 
 def connectToServerOp():
