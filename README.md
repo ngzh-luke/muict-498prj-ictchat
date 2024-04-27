@@ -118,7 +118,7 @@ In this instructions, we will deploy our backend to a cloud linux instance by us
 
 ### Things to know before proceed
 
-- This instruction is adapted from 3 blog posts which you can find them in `resources.md` file.
+- This instruction is adapted from 3 blog posts which you can find them in [`resources.md`](resources.md) file.
 - We will run the server with [`Uvicorn`](https://www.uvicorn.org/) instead of [`Gunicorn`](https://gunicorn.org/) due to some workers problems that might have work around to fix, so to simplify processes we will use `Uvicorn`
 - A linux instance with GPU(s)
 - There are quite a lot of command lines operations, you may need to be familar with terminal stuff
@@ -243,3 +243,5 @@ This screenshot was taken before we made huge major changes to our models and fr
 - [PDF file](chat20240425T1532.pdf)
 - PNG image:
   ![Chatbot frontend](chat20240425T1532.png)
+
+****Last updated by _`Luke/Kan`_ on April 27, 2024 @16.50**
