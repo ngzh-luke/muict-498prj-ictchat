@@ -31,7 +31,7 @@ Our models are available here:
 | NAME | ID | GITHUB | CONTACT | RESPONSIBILITY |
 |------|----|--------|---------|----------------|
 | Kittipich Aiumbhornsin | 6488004 | <https://github.com/ngzh-luke> | <kittipich.aiu@student.mahidol.ac.th> or <contact@lukecreated.com> | Backend/Frontend, deployment and documentation |
-| Tawan Chaidee | 6488011 | <https://github.com/tawan-chaidee> | <tawan.jhaidee@gmail.com>| Model training, Inference,evaluation and data pre-processsing |
+| Tawan Chaidee | 6488011 | <https://github.com/tawan-chaidee> | <tawan.jhaidee@gmail.com>| Model training, Inference, evaluation and data pre-processsing |
 | Linfeng Zhang | 6488168 | <https://github.com/Lr1zz>| | Data collecting |
 
 ## License
@@ -71,6 +71,8 @@ To try out our chatbot model, please go to `/src/model/Muict_Chatbot_inference.i
 
     - Llama2-Fine-tuned: [Llama2_evaluation.xlsx](Llama2_evaluation.xlsx)
     - Mistral-Fine-tuned: [Mistral_evaluation.xlsx](Mistral_evaluation.xlsx)
+    - Llama2-Finetune (mirror): <https://docs.google.com/spreadsheets/d/1mYbO1b3D1JQe_gcB0o4YWB937OXScfkaEYz6-hulaGE/edit?usp=sharing>
+    - Mistral-Finetune (mirror): <https://docs.google.com/spreadsheets/d/1lqzw_hh_-L_QKWGjA136RRUsKfbxYo3lUymNiG0coJ4/edit#gid=759401991>
 
 ## Instructions (Python interpreter)
 
