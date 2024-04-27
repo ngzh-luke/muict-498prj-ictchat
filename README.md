@@ -2,6 +2,10 @@
 
 Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer Science semester 2 of 2023 at faculty of ICT, Mahidol University. The models are trained to know about MUICT, mostly on information on 2 year courses, therefore, with a limited range of data trained, it might not enough to generates such a relevent responses, or even generates bias responses and incorrect information.
 
+Our model is available here:
+- [maunoi/llama2-qlora-finetunined-MUICT-Chatbot](https://huggingface.co/maunoi/Mistral-qlora-finetunined-MUICT-Chatbot)
+- [maunoi/Mistral-qlora-finetunined-MUICT-Chatbot](https://huggingface.co/maunoi/Mistral-qlora-finetunined-MUICT-Chatbot)
+  
 ## On this file
 
 - [MUICT CHATBOT](#muict-chatbot)
