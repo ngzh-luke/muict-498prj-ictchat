@@ -208,17 +208,18 @@ In this instructions, we will deploy our backend to a cloud linux instance by us
 10. enable and start `Supervisor` by run command: `sudo systemctl enable supervisor` and `sudo systemctl start supervisor`
 
 11. generate the start script file by command: `vim start_script` and put in the following:
-
+  ```
         #!/bin/bash
 
         exec /opt/conda/envs/myenv/bin/uvicorn src.apis.main:app --host 0.0.0.0 --port 8000
+  ```
 
 12. make the start script executable by run the command:`chmod u+x start_script`
 
 13. create a `Supervisor`'s configuration file by run the command: `sudo vim /etc/supervisor/conf.d/ictchat.conf`
 
 14. fill in following to the previously created `Supervisor` configuration file and edit all places that required your instance `username`, please also noted that you may replace '**ictchat**' with other names as you like but you also have to replace all **'ictchat'** word that may be found in later in this instruction
-
+  ```
         [program:ictchat]
         command=/home/kittipich_a/muict-498prj-ictchat/start_script
         user=replace_this_with_your_instance_username_here
@@ -226,6 +227,7 @@ In this instructions, we will deploy our backend to a cloud linux instance by us
         autorestart=true
         redirect_stderr=true
         stdout_logfile=/home/[your instance username]/muict-498prj-ictchat/logs/run.log
+  ```
 
 15. run `sudo supervisorctl reread` to reread the `Supervisor` configurations, and run `sudo supervisorctl update` to restart `Supervisor` service
 
@@ -234,14 +236,15 @@ In this instructions, we will deploy our backend to a cloud linux instance by us
 17. to restart the `ictchat`, run command: `sudo supervisorctl restart ictchat` also, we can `start` or `stop` the `ictchat` by just simply replace the `restart`
 
 18. next is to config `NGINX`, run command: `sudo vim /etc/nginx/sites-available/ictchat` and fill the following
-
+  ```
         server{
             server_name domainOrIP; # Replace 'domainOrIP' with the IP address of your server or a domain pointing to that IP (e.g., ictchat-backend.com or www.ictchat-backend.com)
             location / {
                 include proxy_params;
                 proxy_pass http://127.0.0.1:8000;
             }
-        }   
+        }
+  ```
 19. run `sudo ln -s /etc/nginx/sites-available/ictchat /etc/nginx/sites-enabled/` to enable the configuration of our app by creating a symbolic link from the file in `sites-available` into `sites-enabled`
 
 20. test our `NGINX` is okay by run command: `sudo nginx -t`
@@ -249,9 +252,9 @@ In this instructions, we will deploy our backend to a cloud linux instance by us
 21. restart `NGINX` for the new `NGINX` configurations to apply by run command: `sudo systemctl restart nginx`
 
 22. go to the browser and place it with your instance public IP or domain name that points to that IP and you will see something like the following
-
+  ```
         {"Hello": "From MUICT CHAT"}
-
+  ```
 23. enable the `HTTPS` is not in this instructions, you may find out how from online instructions
 
 ## Deployment (Frontend)
@@ -303,4 +306,4 @@ This screenshot was taken before we made huge major changes to our models and fr
 - PNG image:
   ![Chatbot frontend](chat20240425T1532.png)
 
-****Last updated by _`Luke/Kan`_ on April 27, 2024 @16.50**
+****Last updated by _`Luke/Kan`_ on April 28, 2024 @00.11**
