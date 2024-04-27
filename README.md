@@ -38,55 +38,56 @@ This project applied [MIT](https://en.wikipedia.org/wiki/MIT_License) license, a
 ## Directory structure
 
 ```text
-├── .vscode                 <- Local VS Code folder
+├── .vscode                                              <- Local VS Code folder
 │
-├── src                     <- Source code folder of the project (the main package)
-│   ├── apis                <- Directory of backend codes
+├── src                                                  <- Source code folder of the project (the main package)
+|   ├── __init__.py
+│   ├── apis                                             <- Directory of backend codes
 |   |   ├─── __init__.py
 |   |   ├─── docker.py
-|   |   ├─── main.py         <- Starting point of FastAPI that contains all routes
-|   |   └─── model.py        <- Handle everything about on our models
-│   ├── model               <- Folders contains .ipynb files
-│   |   ├─── Muict_Chatbot_inference.ipynb   <- Inference file
-│   |   ├─── QA_pair_Augmentor_(Pre_processs).ipynb   <- Augmentor file
-|   |   └─── Muict_Chatbot_Trainner.ipynb <- Model training file
-│   ├── ui                  <- Directory of frontend codes
+|   |   ├─── main.py                                     <- Starting point of FastAPI that contains all routes
+|   |   └─── model.py                                    <- Handle everything about on our models
+│   ├── model                                            <- Folders contains .ipynb files
+│   |   ├─── Muict_Chatbot_inference.ipynb               <- Inference file
+│   |   ├─── QA_pair_Augmentor_(Pre_processs).ipynb      <- Augmentor file
+|   |   └─── Muict_Chatbot_Trainner.ipynb                <- Model training file
+│   ├── ui                                               <- Directory of frontend codes
 |   |   ├─── __init__.py
-│   |   ├─── main.py        <- Tells how our frontend will looks
-│   |   └─── connectionHandling.py     <- Utils file to handle all connection to backend server
-│   └── config.py           <- Loading the environment files
+│   |   ├─── main.py                                     <- Tells how our frontend will looks
+│   |   └─── connectionHandling.py                       <- Utils file to handle all connection to backend server
+│   └── config.py                                        <- Loading the environment files
 │
-├── chat20240425T1532.pdf   <- Screenshot of the application before major changes
+├── chat20240425T1532.pdf                                <- Screenshot of the application before major changes
 │
-├── chat20240425T1532.png   <- Screenshot of the application before major changes
+├── chat20240425T1532.png                                <- Screenshot of the application before major changes
 │
-├── Llama2_evaluation.xlsx  <- Llama 2 evaluation file
+├── Llama2_evaluation.xlsx                               <- Llama 2 evaluation file
 │
-├── Mistral_evaluation.xlsx  <- Mistral evaluation file
+├── Mistral_evaluation.xlsx                              <- Mistral evaluation file
 │
-├── .example.env            <- Example of environment variables to be in .env or .dev.env file.
+├── .example.env                                         <- Example of environment variables to be in .env or .dev.env file.
 │
-├── .gitignore              <- Files and directories to be ignored by git
+├── .gitignore                                           <- Files and directories to be ignored by git
 |
-├── .dockerignore           <- List of files that will be ignored by Docker
+├── .dockerignore                                        <- List of files that will be ignored by Docker
 |
-├── requirements.txt        <- Files that states project dependencies
+├── requirements.txt                                     <- Files that states project dependencies
 │
-├── .python-version         <- File that tells which Python version is used to develop
+├── .python-version                                      <- File that tells which Python version is used to develop
 │
-├── resources.md            <- Contains such useful information
+├── resources.md                                         <- Contains such useful information
 │
-├── Dockerfile.ui           <- Dockerfile for building the image of application's frontend
+├── Dockerfile.ui                                        <- Dockerfile for building the image of application's frontend
 │
-├── Dockerfile.api          <- Dockerfile for building the image of application's backend (useless)
+├── Dockerfile.api                                       <- Dockerfile for building the image of application's backend (useless)
 |
-├── requirements.txt        <- File that states project dependencies (both frontend and backend)
+├── requirements.txt                                     <- File that states project dependencies (both frontend and backend)
 |
-├── requirements.ui.txt     <- File that states project's frontend dependencies
+├── requirements.ui.txt                                  <- File that states project's frontend dependencies
 │
-├── LICENSE.md              <- Information about project's license
+├── LICENSE.md                                           <- Information about project's license
 │
-├── README.md               <- File with useful information about the project and instructions (this file)
+├── README.md                                            <- File with useful information about the project and instructions (this file)
 ```
 
 ## Our models
