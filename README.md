@@ -22,6 +22,7 @@ Chatbot application for MUICT, a project for ITCS498 Special Topic in Computer S
   - [Prerequisites for follow this instructions](#prerequisites-for-follow-this-instructions)
   - [Deployment (Frontend) instructions](#deployment-frontend-instructions)
 - [Screenshot of Chatbot frontend](#screenshot-of-chatbot)
+- [Disclaimer](#disclaimer)
 
 ## Members of group 4
 
@@ -99,6 +100,7 @@ We use Llama2 and Mistral as base models and fine-tuned them to know specific in
 
 ## Prerequisites
 
+- Google Colab access (For test the inference)
 - A machine with specifications to handle high workload with high performance GPU(s)
 - Python 3
 - Docker (if would like to run chat UI(frontend) using Docker)
@@ -306,4 +308,8 @@ This screenshot was taken before we made huge major changes to our models and fr
 - PNG image:
   ![Chatbot frontend](chat20240425T1532.png)
 
-****Last updated by _`Luke/Kan`_ on April 28, 2024 @00.11**
+## Disclaimer
+
+We are not affiliated with any **products/services/sources** listed in this project.
+
+****Last updated by _`Luke/Kan`_ on April 30, 2024 @10.02**
