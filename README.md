@@ -191,7 +191,7 @@ In this instructions, we will deploy our backend to a cloud linux instance by us
 
 1. connect to the cloud instance by ssh to it by using command: `ssh [your instance username]@[your instance IP]`
 
-2. after connected to the instance, create new conda environment by using command: `conda create -n [your env name] python=[Python version] [environment name such as 'myenv']`
+2. after connected to the instance, create new conda environment by using command: `conda create -n [environment name such as 'myenv'] python=[Python version]`
 
 3. activate the newly created environment by using command: `conda activate [you env name]`
 
@@ -223,7 +223,7 @@ In this instructions, we will deploy our backend to a cloud linux instance by us
 14. fill in following to the previously created `Supervisor` configuration file and edit all places that required your instance `username`, please also noted that you may replace '**ictchat**' with other names as you like but you also have to replace all **'ictchat'** word that may be found in later in this instruction
   ```
         [program:ictchat]
-        command=/home/kittipich_a/muict-498prj-ictchat/start_script
+        command=/home/[your instance username]/muict-498prj-ictchat/start_script
         user=replace_this_with_your_instance_username_here
         autostart=true
         autorestart=true
@@ -310,6 +310,6 @@ This screenshot was taken before we made huge major changes to our models and fr
 
 ## Disclaimer
 
-We are not affiliated with any **products/services/sources** listed in this project.
+We are **not affiliated** with any **offers/products/services/sources** listed in this project.
 
-****Last updated by _`Luke/Kan`_ on April 30, 2024 @10.02**
+****Last updated by _`Luke/Kan`_ on May 1, 2024 @23.58**
